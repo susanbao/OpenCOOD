@@ -50,6 +50,7 @@ def main():
     if torch.cuda.is_available():
         model.cuda()
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    print('cuda' if torch.cuda.is_available() else 'cpu')
 
     print('Loading Model from checkpoint')
     saved_path = opt.model_dir
@@ -62,7 +63,8 @@ def main():
                    0.7: {'tp': [], 'fp': [], 'gt': 0}}
 
     for i, batch_data in enumerate(data_loader):
-        print(i)
+        if i%100 == 0:
+            print(i)
         with torch.no_grad():
             batch_data = train_utils.to_device(batch_data, device)
             if opt.fusion_method == 'late':
