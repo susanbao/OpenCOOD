@@ -22,6 +22,8 @@ preprocess:
   # lidar range for each individual cav.
   cav_lidar_range: &cav_lidar [-80, -40, -3, 80, 40, 1] # must be divisible by 16
 
+data_augment: []
+
 # anchor box related
 postprocess:
   core_method: 'BevPostprocessor' # VoxelPostprocessor, BevPostprocessor supported
@@ -56,3 +58,7 @@ optimizer:
   args:
     eps: 1e-10
     weight_decay: 1e-4
+
+lr_scheduler:
+  core_method: Exponential #step, multistep and Exponential support
+  gamma: 0.99
