@@ -141,8 +141,8 @@ preprocess:
 root_dir: /data/opencda
 train_params:
   batch_size: 2
-  epoches: 15
+  epoches: 30
   eval_freq: 1
   save_freq: 1
-validate_dir: /data/opencda
+validate_dir: opv2v_data_dumping/test_culver_city
 yaml_parser: load_point_pillar_params
