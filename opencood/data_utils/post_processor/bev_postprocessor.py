@@ -241,6 +241,8 @@ class BevPostprocessor(BasePostprocessor):
         pred_score_list = []
 
         for cav_id, cav_content in data_dict.items():
+            #if cav_id != 'ego': # for no fusion test with late fusion model
+            #    continue
             assert cav_id in output_dict
             # the transformation matrix to ego space
             transformation_matrix = cav_content['transformation_matrix']
